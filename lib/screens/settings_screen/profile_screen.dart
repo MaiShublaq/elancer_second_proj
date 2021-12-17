@@ -54,6 +54,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> with Helpers {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
+        backgroundColor: Color(0xFFFFDA1A),
         title:const Text('Edit Profile'),
         centerTitle: true,
       ),
@@ -86,6 +87,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> with Helpers {
     controller: _nameTextController,
     prefixIcon: Icons.person,
     hint: 'FullName',
+      prefixColor: Color(0xFFFFDA1A),
     ),
     const SizedBox(height:10),
 

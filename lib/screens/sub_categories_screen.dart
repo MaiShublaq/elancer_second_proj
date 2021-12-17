@@ -19,7 +19,7 @@ class SubCategoriesScreen extends StatefulWidget {
 class _SubCategoriesScreenState extends State<SubCategoriesScreen>
     with SingleTickerProviderStateMixin {
 
-  //SearchGetxController _searchGetxController = Get.put(SearchGetxController());
+ // SearchGetxController _searchGetxController = Get.put(SearchGetxController());
 
   late TabController _tabController;
   late TextEditingController _searchtextController;
@@ -50,6 +50,11 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('SubCategories'),
+        centerTitle: true,
+        backgroundColor: const  Color(0xFFFFDA1A),
+      ),
         backgroundColor: Colors.lightBlue.shade50,
         body: FutureBuilder<List<SubCategories>>(
           future: _future,
@@ -60,23 +65,21 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen>
             if (snapshot.hasData && snapshot.data!.isNotEmpty) {
               _categories = snapshot.data ?? [];
               return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 0),
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    AppTextField(
-                      controller: _searchtextController,
-                      prefixIcon: Icons.search,
-                      hint: 'Search for productsss',
-                      color: Color(0xFFFFDA1A),
-                      radius: 30,
-                      prefixColor: Color(0xFFFFDA1A),
-                      onChange: (value) {
-                        //_searchGetxController.changeSearchText(value);
-                      },
-                    ),
+
+            //AppTextField(
+            //  controller: _searchtextController,
+            //  prefixIcon: Icons.search,
+            //  hint: 'Search for productsss',
+            //  color: Color(0xFFFFDA1A),
+            //  radius: 30,
+            //  prefixColor: Color(0xFFFFDA1A),
+            //  onChange: (value) {
+            //    //_searchGetxController.changeSearchText(value);
+            //  },
+            //       ),
                     const SizedBox(
                       height: 10,
                     ),

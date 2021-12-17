@@ -41,7 +41,8 @@ class _ChangePasswordState extends State<ChangePassword> with Helpers{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Change Mobile'),
+        backgroundColor: Color(0xFFFFDA1A),
+        title: Text('Change Password'),
         centerTitle: true,
       ),
 
@@ -51,11 +52,11 @@ class _ChangePasswordState extends State<ChangePassword> with Helpers{
           SizedBox(height: 10,),
           Text('Enter Details Below',style:TextStyle(fontSize: 18),textAlign: TextAlign.center,),
           SizedBox(height: 10,),
-          AppTextField(controller: _oldPassTextController, prefixIcon: Icons.lock, hint: "Enter your old password",obsecure: true,),
+          AppTextField(controller: _oldPassTextController, prefixIcon: Icons.lock, hint: "Enter your old password",obsecure: true,prefixColor:Colors.lightBlueAccent,),
           SizedBox(height: 10,),
-          AppTextField(controller: _newpasswordTextController, prefixIcon: Icons.lock, hint: 'Enter new password',obsecure: true),
+          AppTextField(controller: _newpasswordTextController, prefixIcon: Icons.lock, hint: 'Enter new password',obsecure: true,prefixColor: Colors.lightBlueAccent,),
           SizedBox(height: 10,),
-          AppTextField(controller: _newpasswordConfirmTextController, prefixIcon: Icons.lock, hint: 'Confirm new password',obsecure: true),
+          AppTextField(controller: _newpasswordConfirmTextController, prefixIcon: Icons.lock, hint: 'Confirm new password',obsecure: true,prefixColor:Colors.lightBlueAccent ,),
           SizedBox(height: 15,),
           ElevatedButton(
             onPressed: ()=>performChange(),

@@ -43,9 +43,9 @@ class _ContactUsScreenState extends State<ContactUsScreen> with ApiHelpers {
 
         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 30),
         children: [
-          AppTextField(controller: _subjectTextController, prefixIcon: Icons.subject, hint: 'Enter Subject',prefixColor: Color(0xFFFFDA1A),),
+          AppTextField(controller: _subjectTextController, prefixIcon: Icons.subject, hint: 'Enter Subject',prefixColor: Colors.lightBlueAccent,),
           SizedBox(height: 10,),
-          AppTextField(controller: _messagTextController, prefixIcon: Icons.message, hint: 'Enter Your Message',prefixColor: Color(0xFFFFDA1A),),
+          AppTextField(controller: _messagTextController, prefixIcon: Icons.message, hint: 'Enter Your Message',prefixColor: Colors.lightBlueAccent,),
           SizedBox(height: 15,),
           ElevatedButton(
             onPressed: ()=>performSend(),

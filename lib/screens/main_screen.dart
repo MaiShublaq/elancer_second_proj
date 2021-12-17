@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     BnScreen(title:'Home' ,bodyWidget: const HomeScreen()),
     BnScreen(title:'Profile' ,bodyWidget:const CategoriesScreen()),
     BnScreen(title:'Favorites' ,bodyWidget:const FavoriteScreen()),
-    BnScreen(title:'Profile' ,bodyWidget:const ProfileScreen()),
+    BnScreen(title:'Settings' ,bodyWidget:const ProfileScreen()),
 
 
   ];
@@ -91,9 +91,9 @@ class _MainScreenState extends State<MainScreen> {
           ),
 
            BottomNavigationBarItem(
-             activeIcon:Icon(Icons.person),
-             icon:Icon(Icons.person_outlined),
-             label:'Profile',
+             activeIcon:Icon(Icons.settings),
+             icon:Icon(Icons.settings_outlined),
+             label:'Settings',
 
             )
         ],

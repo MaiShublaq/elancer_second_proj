@@ -22,33 +22,36 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFFFDA1A),
         title: Text('Language'),
         centerTitle: true,
       ),
 
-      body: DropdownButton<String>(
-        isExpanded: true,
-        value: dropdownValue,
-        elevation: 16,
-
-        onChanged: (String? newValue) {
-          if(newValue!=null)
-          SharedPrefController().setLang(lang: newValue);
-        setState(() {
-        dropdownValue = newValue!;
-        });
-          SharedPrefController().setLang(lang: dropdownValue);
-          String lang=SharedPrefController().language;
-          print(lang);
-        },
-        items: <String>['English', 'Arabic']
-        .map<DropdownMenuItem<String>>((String value) {
+      body: Padding(
+         padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+        child: DropdownButton<String>(
+          isExpanded: true,
+          value: dropdownValue,
+          elevation: 16,
+          onChanged: (String? newValue) {
+            if(newValue!=null)
+            SharedPrefController().setLang(lang: newValue);
+          setState(() {
+          dropdownValue = newValue!;
+          });
+            SharedPrefController().setLang(lang: dropdownValue);
+            String lang=SharedPrefController().language;
+            print(lang);
+          },
+          items: <String>['English', 'Arabic']
+          .map<DropdownMenuItem<String>>((String value) {
     return DropdownMenuItem<String>(
     value: value,
     child: Text(value),
     );
     }).toList(),
-    )
+    ),
+      )
    //
    // DropdownButton(
    //   isExpanded: true,

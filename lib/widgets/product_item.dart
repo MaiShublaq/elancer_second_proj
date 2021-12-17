@@ -9,11 +9,9 @@ class ProductItem extends StatefulWidget with Helpers{
    ProductItem({
     Key? key,
     required this.products,
-     required  this.fromeWhere
 
   }) : super(key: key);
   final List<Product> products;
-  final String fromeWhere;
 
   @override
   State<ProductItem> createState() => _ProductItemState();
@@ -104,26 +102,29 @@ class _ProductItemState extends State<ProductItem> {
             Text('${widget.products[index].price}\$',style:const TextStyle(
             fontWeight: FontWeight.bold)),
             const Spacer(),
-            CircleAvatar(
-            radius: 13,
-            backgroundColor: Colors.grey.shade400,
-            child:  IconButton(
-            onPressed: () async{
-            await changeFavorite(id:widget.products[index].id,
-            product: widget.products[index]);
-            changeFavoriteColor(status: widget.products[index].isFavorite);
-            } ,
-            icon:Icon(Icons.favorite),
-              color:changeFavoriteColor(status: widget.products[index].isFavorite),
-            )),
-            const SizedBox(width:2),
+              CircleAvatar(
+                  radius: 13,
+                  backgroundColor: Colors.grey.shade400,
+                  child: IconButton(
+                    onPressed:
 
-            ],
-            )
+                        () async{
+                      //    await changeFavorite(product: widget.products[index],
+                      //    id: widget.products[index].id);
+
+                      await changeFavorite(id:widget.products[index].id,
+                          product: widget.products[index]);
+                      changeFavoriteColor(status: widget.products[index].isFavorite);
+                    } ,
+                    icon:Icon(Icons.favorite),
+                    color:changeFavoriteColor(status: widget.products[index].isFavorite),
+                  )),
+              const SizedBox(width: 2),
 
 
 
-            //  ),
+
+            ] ),
             ],
             )
             ),
@@ -140,19 +141,22 @@ class _ProductItemState extends State<ProductItem> {
     );
   }
 
-   Future<void> changeFavorite({required int id,required Product product} ) async{
-    print('in change in product after');
-    await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
-    print('in change in product before');
 
-   }
 
-   Color changeFavoriteColor({required bool status}) {
-     print('in changeColor in product after');
-     Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
-     print('in changeColor in product before');
-     return color;
+Future<void> changeFavorite({required int id,required Product product} ) async{
+ print('in change in product after');
+ await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
+ print('in change in product before');
 
-   }
+}
+
+Color changeFavoriteColor({required bool status}) {
+  print('in changeColor in product after');
+  Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
+  print('in changeColor in product before');
+  return color;
+
+}
+
 
 }

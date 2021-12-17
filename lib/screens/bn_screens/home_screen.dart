@@ -1,4 +1,5 @@
 
+import 'package:elancer_second_proj/get/favorite_getx_controller.dart';
 import 'package:elancer_second_proj/get/home_getx_controller.dart';
 import 'package:elancer_second_proj/models/category.dart';
 import 'package:elancer_second_proj/widgets/categories_item.dart';
@@ -10,6 +11,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+
+
+enum ProductType{latest,famous}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -24,6 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   String image2='images/3.jpg';
   String image3='images/4.jpg';
   HomeGetxController _homeGetxController=Get.put(HomeGetxController());
+  FavoriteGetxController _favoriteGetXController=
+      Get.put(FavoriteGetxController());
 
 
 
@@ -66,11 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       view_all(title: 'Latest Products', navigator: '/products_screen',
                           list:controller.homeResponse!.latestProducts),
                      ProductItem(products: controller.homeResponse!.latestProducts,
-                     fromeWhere: 'List',),
+                     ),
                       view_all(title: 'Famous Products', navigator: '/products_screen',
                           list:controller.homeResponse!.famousProducts,),
                      ProductItem(products: controller.homeResponse!.famousProducts,
-                     fromeWhere: 'List',)
+                     )
                   ])
               );}
             else {

@@ -210,6 +210,9 @@ return false;
       print('200');
       showSnackBar(context: context,
           message: jsonDecode(response.body)['message']);
+      showSnackBar(context: context,
+          message: jsonDecode(response.body)['code']);
+
       return true;
     }
     else if(response.statusCode==400){

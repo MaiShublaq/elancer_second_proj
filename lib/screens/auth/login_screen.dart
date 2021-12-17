@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> with Helpers{
                           text: ' Create now',
 
 
-                          style: const TextStyle(color: Colors.blue),
+                          style: const TextStyle(color: Colors.lightBlueAccent),
                           recognizer: _tapGestureRecognizer
                       )
                     ]

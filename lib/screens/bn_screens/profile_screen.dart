@@ -25,6 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(title:Text('Settings'),
+      backgroundColor: Color(0xFFFFDA1A),
       centerTitle: true,
         shape:const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(

@@ -20,20 +20,15 @@ class ProductItemGrid extends StatefulWidget with Helpers{
 }
 
 class _ProductItemGridState extends State<ProductItemGrid> {
-  FavoriteGetxController _favoriteGetxController=Get.put(FavoriteGetxController());
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<FavoriteGetxController>(
-
-      builder:(controller) {
-
 
         return GridView.builder(
 
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                crossAxisCount: 2,
-               childAspectRatio: 0.8,
+               childAspectRatio: 0.82,
                mainAxisSpacing: 10,
                crossAxisSpacing: 10,
 
@@ -69,7 +64,7 @@ class _ProductItemGridState extends State<ProductItemGrid> {
                     children: [
                       Container(
                         height: 130,
-                        width: 160,
+                        width: 162,
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           shape: RoundedRectangleBorder(
@@ -110,16 +105,21 @@ class _ProductItemGridState extends State<ProductItemGrid> {
                                   fontWeight: FontWeight.bold)),
                           const Spacer(),
                           CircleAvatar(
-                              radius: 13,
+                              radius: 16,
                               backgroundColor: Colors.grey.shade400,
                               child: IconButton(
-                                onPressed: () async{
-                                  await changeFavorite(id:widget.products[index].id,
+                                onPressed:
+
+                                    () async{
+                                 //    await changeFavorite(product: widget.products[index],
+                                 //    id: widget.products[index].id);
+
+                                       await changeFavorite(id:widget.products[index].id,
                                       product: widget.products[index]);
                                   changeFavoriteColor(status: widget.products[index].isFavorite);
                                 } ,
                                 icon:Icon(Icons.favorite),
-                                color:changeFavoriteColor(status: widget.products[index].isFavorite),
+                               color:changeFavoriteColor(status: widget.products[index].isFavorite),
                               )),
                           const SizedBox(width: 2),
 
@@ -132,24 +132,32 @@ class _ProductItemGridState extends State<ProductItemGrid> {
                   )
               ),
             );
-          });
-      },
-    );
-  }
-
-  Future<void> changeFavorite({required int id,required Product product} ) async{
-    print('in change in product after');
-    await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
-    print('in change in product before');
+          }
+          );
 
   }
 
-  Color changeFavoriteColor({required bool status}) {
-    print('in changeColor in product after');
-    Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
-    print('in changeColor in product before');
-    return color;
+ Future<void> changeFavorite({required int id,required Product product} ) async{
+   print('in change in product after');
+   await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
+   print('in change in product before');
 
-  }
+ }
 
+ Color changeFavoriteColor({required bool status}) {
+   print('in changeColor in product after');
+   Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
+   print('in changeColor in product before');
+   return color;
+
+ }
+
+ // Future<void> favoriteProducts(BuildContext context,Product product) async{
+ //   bool status= await FavoriteProductsGetXController.to.updateFavorite(context: context, product: product);
+ //   if(status){
+ //     setState(() {
+ //       product.isFavorite=!product.isFavorite;
+ //     });
+ //   }
+ // }
 }

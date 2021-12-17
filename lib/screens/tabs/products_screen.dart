@@ -160,18 +160,18 @@ class _ProductScreenState extends State<ProductScreen> {
 
   }
 
-  Future<void> changeFavorite({required int id,required Product product} ) async{
-    print('in change in product after');
-    await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
-    print('in change in product before');
-
-  }
-
-  Color changeFavoriteColor({required bool status}) {
-    print('in changeColor in product after');
-    Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
-    print('in changeColor in product before');
-    return color;
-
-  }
+ // Future<void> changeFavorite({required int id,required Product product} ) async{
+ //   print('in change in product after');
+ //   await FavoriteGetxController.to.changeFavorite(context, id: id, prduct:product);
+ //   print('in change in product before');
+//
+ // }
+//
+ // Color changeFavoriteColor({required bool status}) {
+ //   print('in changeColor in product after');
+ //   Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
+ //   print('in changeColor in product before');
+ //   return color;
+//
+ // }
 }
