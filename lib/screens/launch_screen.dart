@@ -16,7 +16,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds:3),(){
-      String route=SharedPrefController().loggedIn?'/main_screen':'/login_screen';
+      String route=SharedPrefController().loggedIn?'/main_screen':'/out_boarding_screen';
       //Navigator.pushReplacementNamed(context, '/out_boarding_screen');
       Navigator.pushReplacementNamed(context, route);
 
