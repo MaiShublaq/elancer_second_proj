@@ -1,3 +1,4 @@
+import 'package:elancer_second_proj/get/favorite_getx_controller.dart';
 import 'package:elancer_second_proj/models/product.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,7 @@ class _HomeProductsScreenState extends State<HomeProductsScreen> {
                    //     ),
                    //child:
                    Container(
-                     height: 130,
+                     height: 125,
                      width: 160,
                      child: Card(
                        clipBehavior: Clip.antiAlias,
@@ -94,11 +95,23 @@ class _HomeProductsScreenState extends State<HomeProductsScreen> {
                        Text('${widget.product[index].price}\$',style:const TextStyle(
                            fontWeight: FontWeight.bold)),
                        const Spacer(),
-                       CircleAvatar(
-                           radius: 13,
-                           backgroundColor: Colors.grey.shade400,
-                           child: const Icon(
-                               Icons.favorite,color:Colors.lightBlueAccent)),
+               CircleAvatar(
+                   radius: 16,
+                   backgroundColor: Colors.grey.shade400,
+                   child: IconButton(
+                     onPressed:
+
+                         () async{
+                       //    await changeFavorite(product: widget.products[index],
+                       //    id: widget.products[index].id);
+
+                       await changeFavorite(id:widget.product[index].id,
+                           product: widget.product[index]);
+                       changeFavoriteColor(status: widget.product[index].isFavorite);
+                     } ,
+                     icon:Icon(Icons.favorite),
+                     color:changeFavoriteColor(status: widget.product[index].isFavorite),
+                   )),
                        const SizedBox(width:2),
 
                      ],
@@ -117,5 +130,26 @@ class _HomeProductsScreenState extends State<HomeProductsScreen> {
      ),
 
     );
+  }
+
+
+
+
+  Future<void> changeFavorite({required int id,required Product product}) async{
+    print('in change in product after');
+    print(product);
+    await FavoriteGetxController.to.changeFavorite(context, id: id,prduct:product );
+    print('in change in product before');
+
+  }
+
+
+
+  Color changeFavoriteColor({required bool status}) {
+    print('in changeColor in product after');
+    Color color= FavoriteGetxController.to.changeFavoriteColor(isFavorite: status);
+    print('in changeColor in product before');
+    return color;
+
   }
 }

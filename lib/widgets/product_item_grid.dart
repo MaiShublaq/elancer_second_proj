@@ -63,7 +63,7 @@ class _ProductItemGridState extends State<ProductItemGrid> {
                   child: Column(
                     children: [
                       Container(
-                        height: 130,
+                        height: 129,
                         width: 162,
                         child: Card(
                           clipBehavior: Clip.antiAlias,

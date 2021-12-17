@@ -252,7 +252,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                               radius: 13,
                               backgroundColor: Colors.grey.shade400,
                               child: const Icon(
-                                  Icons.favorite,color:Colors.lightBlueAccent)),
+                                  Icons.favorite,
+
+                                  color:Colors.lightBlueAccent)),
                           const SizedBox(width:2),
 
                         ],
